@@ -38,6 +38,9 @@ class WP_ACC {
     public function check_cart_activity() {
         if (!WC()->session) return;
 
+        // Check if the user is on the cart page
+        if (!is_cart()) return;
+
         $enabled = get_option('acc_enable_cart_clear', 'yes');
         if ($enabled !== 'yes') return;
 
